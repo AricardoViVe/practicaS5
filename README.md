@@ -1,3 +1,7 @@
 
-# practicaS5
-Ricardo Villafuerte
+# Repositorio del equipo 1
+Participantes:
+	Ricardo Villafuerte
+	Jakelin Rivera
+	Andrés Moreno
+	Luis Ramírez
