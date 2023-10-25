@@ -15,7 +15,3 @@ class Calculadora:
         """
         return float(a) + float(b)
 
-
-calc = calculadora()
-
-print(calc.suma("1", 2.0))
