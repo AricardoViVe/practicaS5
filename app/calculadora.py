@@ -83,9 +83,3 @@ class Calculadora:
 
     def division(self, a, b):
         return division(a, b)
-    
-calc = Calculadora()
-res = calc.input('(8+7/5)*(15-3/8)')
-print(f'operacion: (8+7/5)*(15-3/8) = (9.4)*(14.625) = 137.475 \n resultado: {res}')
-res = calc.input('(5+5)*(1.25-0.75)')
-print(f'operacion: (5+5)*(1.25-0.75) = (10)*(0.5) = 5 \n resultado: {res}')
