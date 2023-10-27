@@ -22,11 +22,11 @@ class Calculadora:
         op_index = s.index(op)
         a = s[:op_index]
         b = s[op_index + 1:]
-        if self.find_operator(a,'/'):
+        if self.find_operator(a,'/') != -1:
             a = str(int(a[0])/(int(a[-1])))
         else: 
             a
-        if self.find_operator(b,'/'):
+        if self.find_operator(b,'/') != -1:
             b = str(int(b[0])/(int(b[-1])))
         else: 
             b
@@ -48,8 +48,6 @@ class Calculadora:
             return self.get_operation(token, '-')
         elif self.find_operator(token, '*') != -1:
             return self.get_operation(token, '*')
-        elif self.find_operator(token, '/') != -1:
-            return self.get_operation(token, '/')
 
     def do_operation(self, a, b, op):
         if op == '+':
@@ -85,3 +83,9 @@ class Calculadora:
 
     def division(self, a, b):
         return division(a, b)
+    
+calc = Calculadora()
+res = calc.input('(8+7/5)*(15-3/8)')
+print(f'operacion: (8+7/5)*(15-3/8) = (9.4)*(14.625) = 137.475 \n resultado: {res}')
+res = calc.input('(5+5)*(1.25-0.75)')
+print(f'operacion: (5+5)*(1.25-0.75) = (10)*(0.5) = 5 \n resultado: {res}')
