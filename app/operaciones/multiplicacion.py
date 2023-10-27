@@ -7,4 +7,4 @@ def multi(a: float, b: float) -> float:
     Returns:
 
     """
-    return float(a) + float(b)
+    return float(a) * float(b)

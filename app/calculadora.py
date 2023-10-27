@@ -5,72 +5,77 @@ from operaciones.suma import suma
 
 class Calculadora:
     """ Objeto que simula una calculadora """
-    def __init__(self) -> None:
+    def __init__(self):
         pass
-    def find_operator(self,s:str,op:str)->bool:
+
+    def find_operator(self, s, op):
         return s.find(op)
-    def find_tokens(self,s:str,op:str)->list:
-        opeator_index = s.index(op, s.index(')'),s.index('('))
-        tokens = [s[:opeator_index],s[opeator_index:]]
+
+    def find_tokens(self, s, op):
+        open_parenthesis = s.rfind('(')
+        close_parenthesis = s.find(')', open_parenthesis)
+        operator_index = s.find(op, open_parenthesis, close_parenthesis)
+        tokens = [s[open_parenthesis + 1:operator_index], s[operator_index + 1:close_parenthesis]]
         return tokens
-    def get_operands(self,s:str,op:str):
+
+    def get_operands(self, s, op):
         op_index = s.index(op)
         a = s[:op_index]
-        b = s[op_index:]
-        return a,b
-    def get_operation(self,s:str,op:str):
+        b = s[op_index + 1:]
+        return a, b
+
+    def get_operation(self, s, op):
+        a, b = self.get_operands(s, op)
         if op == '+':
-            return self.suma(self.get_operands(s,op))
+            return self.suma(float(a), float(b))
         elif op == '-':
-            return self.resta(self.get_operands(s,op))
-        elif op in ('*'):
-            return self.multiplicacion(self.get_operands(s,op))
-        elif op in ('/'):
-            return self.division(self.get_operands(s,op))
-        
-    def get_operation_for_token(self,token:str):
-        if self.find_operator(token,'+'):
-            res = self.get_operation(s[1:-1],'+')
-        elif self.find_operator(token,'-'):
-            res = self.get_operation(s[1:-1],'-')
-        elif self.find_operator(token,'*'):
-            res = self.get_operation(s[1:-1],'*')
-        elif self.find_operator(token,'/'):
-            res = self.get_operation(s[1:-1],'+')
-        return res
-    def do_operation(self,a:float,b:float,op:str):
-        if op == '+':
-            return self.suma(a,b)
-        elif op == '-':
-            return self.resta(a,b)
+            return self.resta(float(a), float(b))
         elif op == '*':
-            return self.multiplicacion(a,b)
+            return self.multiplicacion(float(a), float(b))
         elif op == '/':
-            return self.division(a,b)
+            return self.division(float(a), float(b))
 
+    def get_operation_for_token(self, token):
+        if self.find_operator(token, '+') != -1:
+            return self.get_operation(token, '+')
+        elif self.find_operator(token, '-') != -1:
+            return self.get_operation(token, '-')
+        elif self.find_operator(token, '*') != -1:
+            return self.get_operation(token, '*')
+        elif self.find_operator(token, '/') != -1:
+            return self.get_operation(token, '/')
 
-    def input(self,s:str,b:float=None,operation:str=None):
-        if b==None:
-            s = s.replace(' ','')
-            if self.find_operator(s,')') or self.find_operator(s,'('):
-                tokens = self.find_tokens(s=s,op='*')
-                results =[]
-                for token in tokens:
-                    results.append(self.get_operation_for_token(token=token))
-                final_result = self.multiplicacion(results[0],results[1])
-            else:
-                final_result=self.get_operation_for_token(s)
-            return final_result
-        else:
-            self.do_operation(a,b,operation)
+    def do_operation(self, a, b, op):
+        if op == '+':
+            return self.suma(a, b)
+        elif op == '-':
+            return self.resta(a, b)
+        elif op == '*':
+            return self.multiplicacion(a, b)
+        elif op == '/':
+            return self.division(a, b)
 
-    def suma(self, a: float, b: float) -> float:
-        return suma(a,b)
-    def resta(self, a:float, b:float)->float:
-        return resta(a,b)
-    def multiplicacion(self,a:float,b:float)->float:
-        return multi(a,b)
-    def division(self,a:float,b:float)->float:
-        return division(a,b)
-    
+    def calculate(self, s):
+        s = s.replace(' ', '')
+        while '(' in s:
+            open_parenthesis = s.rfind('(')
+            close_parenthesis = s.find(')', open_parenthesis)
+            token = s[open_parenthesis + 1:close_parenthesis]
+            result = self.get_operation_for_token(token)
+            s = s[:open_parenthesis] + str(result) + s[close_parenthesis + 1:]
+        return float(self.get_operation_for_token(s))
 
+    def input(self, s):
+        return self.calculate(s)
+
+    def suma(self, a, b):
+        return suma(a, b)
+
+    def resta(self, a, b):
+        return resta(a, b)
+
+    def multiplicacion(self, a, b):
+        return multi(a, b)
+
+    def division(self, a, b):
+        return division(a, b)
