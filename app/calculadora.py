@@ -22,6 +22,14 @@ class Calculadora:
         op_index = s.index(op)
         a = s[:op_index]
         b = s[op_index + 1:]
+        if self.find_operator(a,'/'):
+            a = str(int(a[0])/(int(a[-1])))
+        else: 
+            a
+        if self.find_operator(b,'/'):
+            b = str(int(b[0])/(int(b[-1])))
+        else: 
+            b
         return a, b
 
     def get_operation(self, s, op):
@@ -32,8 +40,6 @@ class Calculadora:
             return self.resta(float(a), float(b))
         elif op == '*':
             return self.multiplicacion(float(a), float(b))
-        elif op == '/':
-            return self.division(float(a), float(b))
 
     def get_operation_for_token(self, token):
         if self.find_operator(token, '+') != -1:
