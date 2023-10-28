@@ -15,21 +15,28 @@ calc.suma(1+1)
 
 #Prueba Resta
 def obtener_datos_test_resta():
-    return[(2,1,1.0), (2,1.0,1.0), ("2", 1.0,1.0), (2, "1.0",1.0), (2.0, 1.0,1.0), ('2-1',None ,1.0)]
+    return[(2,1,1.0), (2,1.0,1.0), ("2", 1.0,1.0), (2, "1.0",1.0), (2.0, 1.0,1.0)]
 @pytest.mark.parametrize('a, b, esperado', obtener_datos_test_resta)
 def test_resta_parametrize(a, b,esperado):
     assert calc.resta(a, b) == esperado
 
 #Prueba Multiplicación
 def obtener_datos_test_multiplicacion():
-    return[(1,2,2.0), (1,2.0,2.0), ("1", 2.0,2.0), (1, "2.0",2.0), (2.0, 1.0,2.0), ('2*1',None ,2.0)]
+    return[(1,2,2.0), (1,2.0,2.0), ("1", 2.0,2.0), (1, "2.0",2.0), (2.0, 1.0,2.0)]
 @pytest.mark.parametrize('a, b, esperado', obtener_datos_test_multiplicacion)
 def test_multi_parametrize(a, b,esperado):
     assert calc.multiplicacion(a, b) == esperado
 
 #Prueba División
 def obtener_datos_test_division():
-    return[(2,1,2.0), (2,1.0,2.0), ("2", 1.0,2.0), (2, "1.0",2.0), (2.0, 1.0,2.0), ('2/1',None ,2.0), (2,0,ValueError)]
+    return[(2,1,2.0), (2,1.0,2.0), ("2", 1.0,2.0), (2, "1.0",2.0), (2.0, 1.0,2.0), (2,0,ValueError)]
 @pytest.mark.parametrize('a, b, esperado', obtener_datos_test_division)
 def test_division_parametrize(a, b,esperado):
     assert calc.division(a, b) == esperado
+
+#Prueba operaciones string 
+def obtener_datos_test_strings():
+    return[(2,1,'*',2.0), (2,1.0,'+',3.0), (2.0, 1.0,'/',2.0), (2.0, 1.0,'-',1.0)]
+@pytest.mark.parametrize('a, b, c, esperado', obtener_datos_test_strings)
+def test_strings_parametrize(a, b, c, esperado):
+    assert calc.input(a, b, c) == esperado
