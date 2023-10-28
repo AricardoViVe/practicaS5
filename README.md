@@ -1,7 +1,10 @@
 
-# practicaS5
-Ricardo Villafuerte
+# Repositorio del equipo 1
+Participantes:
+	Andrés Moreno
+	Jakelin Rivera
+	Luis Ramírez
+	Ricardo Villafuerte
 
-terminar función
-pruebas unitarias
-pruebas de integracion
+Entregable 27Oct2023:
+Calculadora con set de pruebas unitarias y de integración usando pytest

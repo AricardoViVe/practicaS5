@@ -1,3 +1,7 @@
+
+import sys 
+sys.path.append('/Users/rich/Documents/DiploMLops/20102023/practica_uno/Integra/practicaS5/app')  
+
 from calculadora import Calculadora
 import pytest
 calc = Calculadora()
