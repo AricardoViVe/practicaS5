@@ -1,0 +1,24 @@
+#Actividad Sesión 7: Incorpora workflow para verificación de estilo y pruebas de calculadora
+name: Actividad7 Flake8 y Pytest
+on:
+  push:
+    branches: [main, branch1]
+  pull_request:
+    branches: [main]
+
+  workflow _dispatch:
+    #Cuando se inicie manualmente desde la pestaña "Actions" en GitHub
+jobs:
+  flake8:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+      - name: flake8
+        uses: py-actions/flake8@v2
+
