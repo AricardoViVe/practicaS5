@@ -2,11 +2,11 @@
 name: Actividad7 Flake8 y Pytest
 on:
   push:
-    branches: [main, branch1]
+    branches: ["main", "branch1"]
   pull_request:
-    branches: [main]
+    branches: ["main"]
 
-  workflow _dispatch:
+  workflow_dispatch:
     #Cuando se inicie manualmente desde la pestaña "Actions" en GitHub
 jobs:
   flake8:
