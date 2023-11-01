@@ -1,8 +1,8 @@
 def suma(a: float, b: float) -> float:
     """
     Args:
-        a: float: 
-        b: float: 
+        a: float:
+        b: float:
 
     Returns:
 

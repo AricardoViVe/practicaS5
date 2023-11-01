@@ -1,10 +1,10 @@
-class Calculadora():
+class Calculadora:
     """Clase dummy sobre una calculadora"""
+
     def __init__(self) -> None:
         return
 
     def suma(self, a: float, b: float) -> float:
-
         """Función transforma dos valores y los suma aritméticamente
 
         Args :
@@ -21,21 +21,9 @@ class Calculadora():
         """
         try:
             # El usuario puede ingresar valores tipo int,str,float
-            return float(a)+float(b)
+            return float(a) + float(b)
         except TypeError:
+            print("El número debe tener formato str, int o float")
 
-<<<<<<< HEAD
-        Args:
-          a: float: 
-          b: float: 
-
-        Returns:
-
-        """
-        return float(a) + float(b)
-
-=======
-            print('El número debe tener formato str, int o float')
 calc = Calculadora()
-print(calc.suma('1', {'a': 1}))
->>>>>>> origin
+print(calc.suma("1", {"a": 1}))

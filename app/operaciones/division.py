@@ -1,4 +1,6 @@
 from utils.fracciones import obtener_fracciones
+
+
 def division(a, b):
     """Divide dos fracciones."""
     dividendo = obtener_fracciones(a)

@@ -1,4 +1,6 @@
 from utils.fracciones import obtener_fracciones
+
+
 def resta(a, b):
     """Resta dos fracciones."""
     minuendo = obtener_fracciones(a)
