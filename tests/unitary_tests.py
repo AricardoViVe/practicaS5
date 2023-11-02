@@ -1,12 +1,7 @@
-import sys
-
-sys.path.append(
-    "/Users/rich/Documents/DiploMLops/20102023/practica_uno/Integra/practicaS5/app"
-)
-# sys.path.append("C:\\Users\\Andrew S\\Documents\\Trabajo\\Diplomado MLOps\\practicaS5\\app")
-
-from app.calculadora import Calculadora
 import pytest
+from app.calculadora import Calculadora
+import sys
+sys.path.append("/Users/rich/Documents/DiploMLops/20102023/practica_uno/Integra/practicaS5/app/")  # noqa: E501
 
 
 # Prueba Suma
