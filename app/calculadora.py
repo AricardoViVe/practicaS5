@@ -18,15 +18,15 @@ class Calculadora:
         close_parenthesis = s.find(")", open_parenthesis)
         operator_index = s.find(op, open_parenthesis, close_parenthesis)
         tokens = [
-            s[open_parenthesis + 1 : operator_index],
-            s[operator_index + 1 : close_parenthesis],
+            s[open_parenthesis + 1:operator_index],
+            s[operator_index + 1:close_parenthesis],
         ]
         return tokens
 
     def get_operands(self, s, op):
         op_index = s.index(op)
         a = s[:op_index]
-        b = s[op_index + 1 :]
+        b = s[op_index + 1:]
         if self.find_operator(a, "/") != -1:
             a = str(int(a[0]) / (int(a[-1])))
         else:
@@ -69,9 +69,9 @@ class Calculadora:
         while "(" in s:
             open_parenthesis = s.rfind("(")
             close_parenthesis = s.find(")", open_parenthesis)
-            token = s[open_parenthesis + 1 : close_parenthesis]
+            token = s[open_parenthesis + 1:close_parenthesis]
             result = self.get_operation_for_token(token)
-            s = s[:open_parenthesis] + str(result) + s[close_parenthesis + 1 :]
+            s = s[:open_parenthesis] + str(result) + s[close_parenthesis + 1:]
         return float(self.get_operation_for_token(s))
 
     def input(self, s):

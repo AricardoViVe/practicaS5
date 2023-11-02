@@ -1,11 +1,10 @@
 import sys
-
-sys.path.append(
-    "/Users/rich/Documents/DiploMLops/20102023/practica_uno/Integra/practicaS5/app"
-)
-
 from calculadora import Calculadora
 import pytest
+
+sys.path.append(
+    "/Users/rich/Documents/DiploMLops/20102023/practica_uno/Integra/practicaS5/app"  # noqa: E501
+)
 
 calc = Calculadora()
 
@@ -18,13 +17,6 @@ def obtener_datos_suma():
 @pytest.mark.parametrize("a", "b", "esperado", obtener_datos_suma())
 def test_suma_parametrize(a, b, esperado):
     assert calc.suma(a, b) == esperado
-
-
-from app.calculadora import Calculadora
-import pytest
-
-calc = Calculadora()
-calc.suma(1 + 1)
 
 
 # Prueba Resta
