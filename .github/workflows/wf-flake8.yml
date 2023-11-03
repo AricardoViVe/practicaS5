@@ -2,7 +2,7 @@
 name: Prueba Flake 8 en new features
 on:
   push:
-    branches: ["main", "branch1","branch3_raiz"]
+    branches: ["main", "branch1"]
   pull_request:
     branches: ["main", "branch1"]
 
