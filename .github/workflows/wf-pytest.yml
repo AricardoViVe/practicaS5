@@ -1,9 +1,10 @@
-name: Pruebas con Pytest
+name: Pruebas con Pytest - new features
 on:
   push:
-    branches: ["main", "branch1"]
+    branches: ["main", "branch1","branch3_raiz"]
   pull_request:
-    branches: ["main"]
+    branches: ["main","branch1"]
+
   workflow_dispatch:
 
 jobs:
@@ -26,4 +27,8 @@ jobs:
       - name: Run tests with Pytest
         run: |
           pytest tests/integracion_test.py -v
+<<<<<<< HEAD
           pytest tests/unitary_tests.py -v
+=======
+          pytest tests/unitary_tests.py -v
+>>>>>>> branch1
