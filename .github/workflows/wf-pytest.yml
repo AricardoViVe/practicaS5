@@ -1,23 +1,27 @@
-name: Preubas con Pytest
+name: Pruebas con Pytest
 on:
   push:
     branches: ["main", "branch1"]
   pull_request:
     branches: ["main"]
-
   workflow_dispatch:
-    #Cuando se inicie manualmente desde la pestaña "Actions" en GitHub
+
 jobs:
-  Pytest:
-    runs-on: ububtu-latest
+  pytest:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up python 3.8
-        uses: actions/setup-python@v3
+      - name: Check out source repository
+        uses: actions/checkout@v2
+      
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
         with:
           python-version: "3.8"
-      - name: Instala Pytest
-        run: pip install pytest
-      - name: Correr pruebas con Pytest
-        run:
-          pytest tests/integracion_test.py -v
+
+      - name: Install Pytest
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Run tests with Pytest
+        run: pytest tests/integracion_test.py -v
