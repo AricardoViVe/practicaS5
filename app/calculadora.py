@@ -2,7 +2,7 @@ from operaciones.division import division
 from operaciones.multiplicacion import multi
 from operaciones.resta import resta
 from operaciones.suma import suma
-from operaciones.potencia import potencia
+from operaciones.potencia_raiz import potencia
 
 
 class Calculadora:
@@ -47,7 +47,7 @@ class Calculadora:
         elif op == "*":
             return self.multiplicacion(float(a), float(b))
         elif op == "^":
-            return self.potencia(float(a), float(b))
+            return self.potencia_raiz(float(a), float(b))
 
     def get_operation_for_token(self, token):
         if self.find_operator(token, "+") != -1:
@@ -69,7 +69,7 @@ class Calculadora:
         elif op == "/":
             return self.division(a, b)
         elif op == "^":
-            return self.potencia(a, b)
+            return self.potencia_raiz(a, b)
 
     def calculate(self, s):
         s = s.replace(" ", "")
@@ -96,5 +96,5 @@ class Calculadora:
     def division(self, a, b):
         return division(a, b)
     
-    def potencia(self, a, b):
+    def potencia_raiz(self, a, b):
         return potencia(a, b)
