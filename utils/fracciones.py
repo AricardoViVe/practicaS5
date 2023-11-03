@@ -16,12 +16,9 @@ def obtener_fracciones(frac_str):
                 whole = float(leading)
             except ValueError:
                 whole = 0
+            if float(denom) == 0:
+                raise ZeroDivisionError
             frac = float(num) / float(denom)
             return whole - frac if whole < 0 else whole + frac
     return float(frac_str)
 
-
-def read_csv(path: str):
-    """Define read csv logic."""
-    print(path)
-    return 0

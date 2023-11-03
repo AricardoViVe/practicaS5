@@ -54,18 +54,19 @@ def test_multi_parametrize(a, b, esperado):
 # Prueba Potencia
 def obtener_datos_test_potencia():
     return [
-        (2/3, 3/1, 0.2962962963),
-        (-3/2, 2/3, "no permitido, raiz de un numero negativo"),
-        (3/2, 2/0, ValueError),
-        (2/0, 3/2, ValueError),
+        (2/3, 3/1, 0.2962962962962962),
+        (-3/2, 2.25, "no permitido, raiz de un numero negativo"),
+        (3/2, 2/2, 3/2),
+        (2, 3/2, 2.8284271247461903),
     ]
 
 
 @pytest.mark.parametrize("a, b, esperado", obtener_datos_test_potencia())
 def test_potencia_parametrize(a, b, esperado):
     calc = Calculadora()
-    resultado = calc.potencia(a, b)
+    resultado = calc.potencia_raiz(a, b)
     assert resultado == esperado
+
 
 
 # Prueba División
@@ -76,7 +77,7 @@ def obtener_datos_test_division():
         ("2", 1.0, 2.0),
         (2, "1.0", 2.0),
         (2.0, 1.0, 2.0),
-        (2, 0, ValueError),
+        (2, 0, 'Division entre cero'),
     ]
 
 

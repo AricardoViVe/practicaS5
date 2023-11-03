@@ -10,4 +10,3 @@ def potencia(a, b):
         return "no permitido, raiz de un numero negativo"
     else:
         return (base) ** (potencia)
-    
