@@ -78,8 +78,7 @@ def obtener_datos_test_division():
         ("2", 1.0, 2.0),
         (2, "1.0", 2.0),
         (2.0, 1.0, 2.0),
-        (2, 0, 'Division entre cero'),
-
+        (2, 0, 'Division entre cero')
     ]
 
 
@@ -90,6 +89,8 @@ def test_division_parametrize(a, b, esperado):
     assert resultado == esperado
 
 # Prueba Potencia
+
+
 def obtener_datos_test_potencia():
     return [
         (2/3, 3/1, 0.29629629629630),
