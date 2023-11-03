@@ -25,3 +25,4 @@ jobs:
 
       - name: Run tests with Pytest
         run: pytest tests/integracion_test.py -v
+        run: pytest test/unitary_tests.py -v
