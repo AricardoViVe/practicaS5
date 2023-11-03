@@ -19,5 +19,5 @@ jobs:
       - name: Instala Pytest
         run: pip install pytest
       - name: Correr pruebas con Pytest
-        run: |
-        pytest tests/integracion_test.py -v
+        run:
+          pytest tests/integracion_test.py -v
