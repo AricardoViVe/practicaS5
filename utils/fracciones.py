@@ -21,4 +21,3 @@ def obtener_fracciones(frac_str):
             frac = float(num) / float(denom)
             return whole - frac if whole < 0 else whole + frac
     return float(frac_str)
-

@@ -98,3 +98,4 @@ class Calculadora:
     
     def potencia_raiz(self, a, b):
         return potencia(a, b)
+    

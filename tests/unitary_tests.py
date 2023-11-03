@@ -52,6 +52,8 @@ def test_multi_parametrize(a, b, esperado):
     assert resultado == esperado
 
 # Prueba Potencia
+
+
 def obtener_datos_test_potencia():
     return [
         (2/3, 3/1, 0.2962962962962962),
@@ -66,7 +68,6 @@ def test_potencia_parametrize(a, b, esperado):
     calc = Calculadora()
     resultado = calc.potencia_raiz(a, b)
     assert resultado == esperado
-
 
 
 # Prueba División
