@@ -95,7 +95,6 @@ class Calculadora:
 
     def division(self, a, b):
         return division(a, b)
-    
+
     def potencia_raiz(self, a, b):
         return potencia(a, b)
-    
