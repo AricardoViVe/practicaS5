@@ -1,10 +1,10 @@
 #Actividad Sesión 7: Incorpora workflow para verificación de estilo y pruebas de calculadora
-name: Actividad7 Flake8 y Pytest
+name: Prueba Flake 8 en new features
 on:
   push:
-    branches: ["main", "branch1"]
+    branches: ["main", "branch1","branch3_raiz"]
   pull_request:
-    branches: ["main"]
+    branches: ["main", "branch1"]
 
   workflow_dispatch:
     #Cuando se inicie manualmente desde la pestaña "Actions" en GitHub
