@@ -1,6 +1,7 @@
 """Module providing a function for command line parameters."""
 import sys
 
+
 def resta(n1, n2):
     """
 

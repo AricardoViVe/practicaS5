@@ -24,3 +24,4 @@ class Calculadora:
             return float(a) + float(b)
         except TypeError:
             print("El número debe tener formato str, int o float")
+
