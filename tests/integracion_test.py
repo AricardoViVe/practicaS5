@@ -27,5 +27,6 @@ def obtener_datos_test_calc_anidada():
 def test_cal_anidada(a, b, c, d, e, f, esperado):
     calc = Calculadora()
     resultado = calc.multiplicacion(
-        calc.suma(a, b), calc.multiplicacion(calc.suma(c, d), calc.potencia_raiz(e, f)))
+        calc.suma(a, b),
+        calc.multiplicacion(calc.suma(c, d), calc.potencia_raiz(e, f)))
     assert resultado == esperado
