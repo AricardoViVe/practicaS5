@@ -1,0 +1,31 @@
+name: Pruebas con Pytest - new features
+on:
+  push:
+    branches: ["main", "branch1"]
+  pull_request:
+    branches: ["main","branch1"]
+
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v2
+      
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+
+      - name: Install Pytest
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Run tests with Pytest
+        run: |
+          pytest tests/integracion_test.py -v
+          pytest tests/unitary_tests.py -v
+
